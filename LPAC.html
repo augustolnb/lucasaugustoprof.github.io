@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aulas de Física e Matemática</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --gradient-start: #00aaff;
+            --gradient-end: #00cc99;
+            --highlight-color: #ffcc00;
+            --light-text: #ffffff;
+            --dark-text: #212529;
+            --card-bg: #ffffff;
+            --card-text: #333333;
+            --card-border: #e0e0e0;
+            --icon-color: #007bff;
+            --section-bg: #f5f7fa;
+            --subitem-color: #28a745;
+            --star-color: #ffcc00;
+            --footer-bg-start: #0066cc;
+            --footer-bg-end: #008080;
+            --footer-text: #ffffff;
+            --footer-subtext: #d9e6f2;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            color: var(--light-text);
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: var(--highlight-color);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            color: var(--light-text);
+        }
+
+        .cta-button {
+            background-color: var(--highlight-color);
+            color: var(--dark-text);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button input {
+            border: none;
+            background: transparent;
+            color: var(--dark-text);
+            font-size: 1em;
+            width: 150px;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            margin: 10px;
+        }
+
+        .stat-item .number {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--highlight-color);
+        }
+
+        .stat-item .label {
+            font-size: 0.9em;
+            color: var(--light-text);
+        }
+
+        /* Seção: Por que escolher nossas aulas? */
+        .why-choose-us-section {
+            background-color: var(--section-bg);
+            padding: 40px 0;
+            color: var(--card-text);
+        }
+
+        .why-choose-us-section h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .why-choose-us-section p.subtitle {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--card-border);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 2em;
+            color: var(--icon-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h4 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .feature-card p {
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        /* Seção: Conheça seu Professor */
+        .professor-section {
+            padding: 40px 0;
+            color: var(--light-text);
+        }
+
+        .professor-section h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .professor-section p.subtitle {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .professor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .professor-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--card-border);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            color: var(--card-text);
+        }
+
+        .professor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .professor-card .icon {
+            font-size: 2em;
+            color: var(--icon-color);
+            margin-bottom: 15px;
+        }
+
+        .professor-card h4 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .professor-card p.subitem {
+            font-size: 0.9em;
+            color: var(--subitem-color);
+            margin: 5px 0 0;
+        }
+
+        .professor-card p.description {
+            font-size: 0.9em;
+            margin: 10px 0 0;
+        }
+
+        .professor-content-wrapper {
+            display: flex; /* Habilita o Flexbox */
+            gap: 40px; /* Espaço entre as duas colunas */
+            align-items: center; /* Alinha os itens verticalmente ao centro */
+            flex-wrap: wrap; /* Permite que as colunas quebrem a linha em telas menores */
+            margin-bottom: 50px; /* Espaço abaixo desta seção */
+        }
+
+        .professor-content-wrapper .text-content {
+            flex: 1; /* Ocupa o espaço disponível, se expande */
+            min-width: 300px; /* Largura mínima para o texto antes de quebrar a linha */
+        }
+
+        .professor-content-wrapper .text-content .subtitle {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .professor-content-wrapper .image-content {
+            flex: 1; /* Ocupa o espaço disponível, se expande */
+            min-width: 250px; /* Largura mínima para a imagem */
+            text-align: center; /* Centraliza a imagem se ela for menor que o espaço */
+        }
+
+        .professor-content-wrapper .image-content img {
+            max-width: 100%; /* Garante que a imagem não ultrapasse o contêiner */
+            height: auto; /* Mantém a proporção da imagem */
+            border-radius: 10px; /* Borda arredondada para a imagem (opcional) */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Sombra para a imagem (opcional) */
+        }
+
+
+
+
+        /* Seção: O que nossos alunos dizem */
+        .testimonials-section {
+            background-color: var(--section-bg);
+            padding: 40px 0;
+            color: var(--card-text);
+        }
+
+        .testimonials-section h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .testimonials-section p.subtitle {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .testimonial-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--card-border);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card .stars {
+            color: var(--star-color);
+            margin-bottom: 10px;
+        }
+
+        .testimonial-card p.quote {
+            font-size: 0.9em;
+            margin: 0 0 10px;
+            font-style: italic;
+        }
+
+        .testimonial-card p.author {
+            font-size: 0.9em;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .testimonial-card p.course {
+            font-size: 0.8em;
+            margin: 0;
+            color: #666;
+        }
+
+        /* Rodapé */
+        footer {
+            background: linear-gradient(90deg, var(--footer-bg-start), var(--footer-bg-end));
+            color: var(--footer-text);
+            padding: 40px 0;
+            margin-top: auto;
+        }
+
+        footer .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        footer .footer-logo {
+            flex: 1;
+            min-width: 200px;
+            text-align: left;
+        }
+
+        footer .footer-logo h4 {
+            font-size: 1.5em;
+            margin: 0 0 10px;
+            color: var(--footer-text);
+        }
+
+        footer .footer-logo p {
+            font-size: 0.9em;
+            margin: 5px 0;
+            color: var(--footer-subtext);
+        }
+
+        footer .footer-links {
+            flex: 2;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        footer .footer-links .link-section {
+            flex: 1;
+        }
+
+        footer .footer-links .link-section h5 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: var(--footer-text);
+        }
+
+        footer .footer-links .link-section a {
+            display: block;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            color: var(--footer-subtext);
+            text-decoration: none;
+        }
+
+        footer .footer-links .link-section a:hover {
+            text-decoration: underline;
+        }
+
+        footer .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: var(--footer-subtext);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .features-grid, .professor-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .professor-content-wrapper {
+                flex-direction: column; /* Coloca as colunas uma abaixo da outra */
+                gap: 30px; /* Ajusta o espaço */
+            }
+            footer .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            footer .footer-logo {
+                margin-bottom: 20px;
+            }
+            footer .footer-links {
+                flex-direction: column;
+                text-align: left;
+            }
+        }
+
+        .titulo-principal {
+            font-family: Arial, sans-serif;
+            font-size: 4rem; /* Ajuste o tamanho da fonte conforme necessário */
+            font-weight: bold;
+        }
+
+        /* Cor branca para a primeira parte do texto */
+        .titulo-principal .cor-branca {
+            color: white;
+        }
+
+        /* Cor amarela para a segunda parte do texto */
+        .titulo-principal .cor-amarela {
+            color: #FFC107; /* Cor amarela similar à da imagem */
+        }
+        </style>
+</head>
+
+
+<body>
+    <header>
+        <div class="container">
+            <div class="titulo-principal">
+                <span class="cor-branca">Aulas de</span>
+                <span class="cor-amarela">Física</span>
+                <span class="cor-branca">e</span>
+                <br>
+                <span class="cor-amarela">Matemática</span>
+            </div>
+            <p>Supere as exatas com uma abordagem humanizada e personalizada.</p>
+            <h4>Te espero no Whatsapp!!</h4>
+            <a href="https://wa.me/5563992306793?text=Olá,%20gostaria%20de%20agendar%20uma%20aula!" class="cta-button">
+                Agende uma Aula
+            </a>
+            
+        </div>
+    </header>
+
+    <section class="why-choose-us-section">
+        <div class="container">
+            <h2>Por que escolher minhas aulas?</h2>
+            <p class="subtitle">Uma abordagem que combina experiência acadêmica com paciência e método para garantir um aprendizado robusto.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-user-check"></i></div>
+                    <h4>Metodologia Personalizada</h4>
+                    <p>Cada aluno tem um plano único, adaptado às suas dificuldades e objetivos específicos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-clock"></i></div>
+                    <h4>Horários Flexíveis</h4>
+                    <p>Aulas presenciais ou online nos melhores horários da sua rotina.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-book"></i></div>
+                    <h4>Material Exclusivo</h4>
+                    <p>Exercícios e resumos personalizados para cada tópico estudado.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Acompanhamento Contínuo e Personalizado</h4>
+                    <p>Atenção adaptada ao ritmo de cada aluno, com feedback constante para pais.</p>
+                </div>
+            </div><br><br>
+             <a href="https://wa.me/5563992306793?text=Olá,%20gostaria%20de%20agendar%20uma%20aula!" class="cta-button">
+                Agende uma Aula
+            </a>
+        </div>
+    </section>
+
+    <section class="professor-section">
+        <div class="container">
+            <h2 class="section-title">Conheça o Professor</h2>
+
+            <div class="professor-content-wrapper">
+                <div class="text-content">
+                    <p class="subtitle">Olá! Me Lucas Augusto, sou engenheiro eletricista formado pelo IFTO - Campus Palmas. Minha jornada na educação começou em 2012 e minha paixão por ensinar vem desde a época em que fui monitor de alguns projetos no próprio IFTO.</p>
+                    <p>Meu objetivo é ajudar jovens que enfrentam dificuldades no aprendizado das matérias de exatas, assim como eu enfrentei até os meus 15 anos.</p>
+
+                    <p>Sei como é ruim não acompanhar as aulas e como isso reflete na nossa autoestima e em toda nossa vida.</p>
+
+                    <p>Seja como reflexo do período da pandemia ou por dificuldades naturais com as matérias, a abordagem humanizada utilizada busca criar um ambiente de aprendizado confortável e acolhedor.</p>
+
+                    <p>Acredito que, além de dominar os números e as fórmulas, é fundamental fortalecer a confiança e a autoestima dos alunos, para que assim eles possam alcançar seu pleno potencial. </p>
+                    
+                </div>
+
+                <div class="image-content">
+                    <img src="https://raw.githubusercontent.com/augustolnb/augustolnb/a03612124e9eb9ea10c433ab30d04a485e668169/fota.png" alt="Foto do Professor" style="max-width: 100%;height: auto;border-radius: 50%;box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);"><br><br>
+                     <a href="https://wa.me/5563992306793?text=Olá,%20gostaria%20de%20agendar%20uma%20aula!" class="cta-button">
+                        Agende uma Aula
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>O que os pais e alunos dizem:</h2>
+            <p class="subtitle">Histórias reais de sucesso que mostram como nossas aulas transformam o desempenho acadêmico</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote">"Agora posso ficar mais tranquilo, o Lucas tem ajudado demais no acompanhamento das provas e atividades escolares."</p>
+                    <p class="author">Sr. Carlos</p>
+                    <p class="course">Pai do João, estudante do 2º ano do ensino médio</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote">"Sou muito grato ao Lucas pela ajuda em física e matemática, as aulas com certeza me ajudaram e fui aprovado na faculdade ainda no segundo ano."</p>
+                    <p class="author">João Gabriel</p>
+                    <p class="course">Aprovado em Direito</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote">"Minha filha tem um pouco de dificuldade em matemática. Sempre chamo o Lucas perto da época de provas para revisar e tirar algumas dúvidas, agora a nota de matemática é sempre alta."</p>
+                    <p class="author">Dona Ana</p>
+                    <p class="course">Mãe de Manuella, estudante do 8º ano do fundamental</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote">"O professor me ajudou bastante nos últimos dois anos do ensino médio quando estava me preparando para o ENEM e vestibular. Queria cursar medicina mas tinha muita dificuldade com matemática. O Lucas me ajudou bastante com a base matemática e eu consegui ser aprovado na faculdade que eu queria."</p>
+                    <p class="author">Gabriel</p>
+                    <p class="course">Aprovado em Medicina</p>
+                </div><br>
+            </div>
+            <a href="https://wa.me/5563992306793?text=Olá,%20gostaria%20de%20agendar%20uma%20aula!" class="cta-button">
+                Agende uma Aula
+            </a>  
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h4>Aulas de Física & Matemática</h4>
+                <p>Transformando a dificuldade em conquistas através de um ensino personalizado.</p>
+                <p>© 2025 Todos os direitos reservados.</p>
+            </div>
+            <div class="footer-links">
+                
+                <div class="link-section">
+                    <h5>Contato</h5>
+                    <a href="https://wa.me/5563992306793?text=Olá,%20gostaria%20de%20agendar%20uma%20aula!">(63) 99230-6793</a>
+                    <a href="mailto:profelucasnunes@gmail.com">profelucasnunes@gmail.com</a>
+                    <a href="#localizacao">Palmas, TO</a>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
