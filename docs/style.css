@@ -40,8 +40,9 @@
         }
 
         header {
-            color: var(--light-text);
-            padding: 40px 20px;
+                background: linear-gradient(90deg, rgba(0, 12, 24, 0.8), rgba(0, 28, 128, 0.8)), url('https://raw.githubusercontent.com/augustolnb/lucasaugustoprof.github.io/refs/heads/main/imgs/wallpaper.jpg') no-repeat center center/cover;
+                color: var(--light-text);
+                padding: 40px 20px;
         }
 
         header h1 {
@@ -165,6 +166,7 @@
 
         /* Seção: Conheça seu Professor */
         .professor-section {
+            background: linear-gradient(90deg, rgba(0, 12, 24, 0.8), rgba(0, 28, 128, 0.8)), url('https://raw.githubusercontent.com/augustolnb/lucasaugustoprof.github.io/refs/heads/main/imgs/wallpaper.jpg') no-repeat center center/cover;
             padding: 40px 0;
             color: var(--light-text);
         }
@@ -326,7 +328,7 @@
 
         /* Rodapé */
         footer {
-            background: linear-gradient(90deg, var(--footer-bg-start), var(--footer-bg-end));
+            background: linear-gradient(90deg, rgba(0, 12, 24, 0.8), rgba(0, 28, 128, 0.8)), url('https://raw.githubusercontent.com/augustolnb/lucasaugustoprof.github.io/refs/heads/main/imgs/wallpaper.jpg') no-repeat center center/cover;
             color: var(--footer-text);
             padding: 40px 0;
             margin-top: auto;
